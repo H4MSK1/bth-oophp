@@ -10,5 +10,6 @@ namespace Anax\View;
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
 ?>
-
-FOOTER
+<footer class="container">
+    <div class="footer bg-primary">Copyright © <?php echo date('Y'); ?></div>
+</footer>

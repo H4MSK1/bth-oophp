@@ -33,59 +33,35 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 
 <!-- header -->
 <?php if (regionHasContent("header")) : ?>
-<div class="outer-wrap outer-wrap-header">
-    <div class="inner-wrap inner-wrap-header">
-        <div class="row">
-            <div class="wrap-header">
-                <?php renderRegion("header") ?>
-            </div>
-        </div>
-    </div>
-</div>
+    <?php renderRegion("header") ?>
 <?php endif; ?>
 
 <!-- navbar -->
 <?php if (regionHasContent("navbar")) : ?>
-<div class="outer-wrap outer-wrap-navbar">
-    <div class="inner-wrap inner-wrap-navbar">
-        <div class="row">
-            <div class="wrap-navbar">
-                <?php renderRegion("navbar") ?>
-            </div>
-        </div>
-    </div>
-</div>
+    <?php renderRegion("navbar") ?>
 <?php endif; ?>
 
 <!-- main -->
 <?php if (regionHasContent("main")) : ?>
-<div class="outer-wrap outer-wrap-main">
-    <div class="inner-wrap inner-wrap-main">
-        <div class="row">
-            <main class="wrap-main">
+<main class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <div class="main-wrapper bg-secondary">
                 <?php renderRegion("main") ?>
-            </main>
+            </div>
         </div>
     </div>
-</div>
+</main>
 <?php endif; ?>
 
 <!-- footer -->
 <?php if (regionHasContent("footer")) : ?>
-<div class="outer-wrap outer-wrap-footer">
-    <div class="inner-wrap inner-wrap-footer">
-        <div class="row">
-            <div class="wrap-footer">
-                <?php renderRegion("footer") ?>
-            </div>
-        </div>
-    </div>
-</div>
+    <?php renderRegion("footer") ?>
 <?php endif; ?>
 
 <?php if (isset($stylesheets)) : ?>
     <?php foreach ($javascripts as $javascript) : ?>
-    <script async src="<?= asset($javascript) ?>"></script>
+    <script src="<?= asset($javascript) ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 
