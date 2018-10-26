@@ -71,7 +71,39 @@ Min TIL för detta kmom har varit att konvertera kod till att fungera inuti ramv
 Kmom03
 -------------------------
 
-Här är redovisningstexten
+**Har du tidigare erfarenheter av att skriva kod som testar annan kod?**
+
+Jag har rätt så lite erfarenhet av att skriva kod som testar annan kod, har gjort det tidigare i både C# och Python.
+Då körde jag unit tester och kollar jag på unit tester i PHP så är principen ändå samma, strukturen skiljer sig bara.
+
+**Hur ser du på begreppen enhetstestning och att skriva testbar kod?**
+
+Det är ett bra sätt att testa koden ju större den blir, speciellt om man jobbar i ett team.
+Man behöver då skriva enhetstester för att försäkra sig att funktionerna gör som dem ska, om man själv ska jobba på ett projekt så kanske det inte är så nödvändigt men det är alltid en sorts försäkring tycker jag.
+Ibland så känns enhetstester så tråkigt och onödigt, men det spar en del huvudvärk senare när man försöker pilla på något i koden som krockar med något test, då vet man precis vart man ska kolla.
+
+**Förklara kort begreppen white/grey/black box testing samt positiva och negativa tester, med dina egna ord.**
+
+White-box testing uppfatta jag som när man testar koden inuti källkoden/applikationen, och då måste man givetvis ha tillgång till källkoden för att köra enhetstesterna.
+Black-box testing är att man utför testerna från utsidan, d.v.s personen som använder applikationen utför testerna och inte som i White-box testerna att koden utför testerna.
+Grey-box testing är en mix av både white-box och black-box, kombinerat så används effektivt för att hitta buggar och defekter inom applikationen.
+Positiva tester är när enhetstesterna körs som man har tänkt sig och negativa tester körs när man inte förväntar sig att det ska funka typ med Exceptions osv.
+
+**Berätta om hur du löste uppgiften med Tärningsspelet 100, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?**
+
+Jag började med att rita uml (som jag ändå var tvungen att göra om tillslut) för att få en överblick i hur koden kan komma att se ut.
+Jag använde /Dice klasserna som bas, tänkte mig att det ska endast vara 2 spelare som kan spela (Användaren och Datorn).
+Spelet utför olika handlingar beroende på vilken POST data som skickas med i formuläret varje gång man klickar på en knapp.
+Efter att ha testat spelet själv och skrivit enhetstester så började jag rensa upp koden lite och sätta "private" visibility på variablar jag inte vill kunna ändra utanför klassen Game.
+
+**Hur väl lyckades du testa tärningsspelet 100?**
+
+Jag lyckades bra tycker jag.
+Vad gäller enhetstesterna jag skrev så fick jag inte så mycket kodtäckning som jag hade hoppats få men p.g.a tidsbrist så får jag låta det vara tillsvidare.
+
+**Vilken är din TIL för detta kmom?**
+
+Min TIL för detta kmom var mer användningen av ramverket session service och mer enhetstester, samt en massa type errors som vanligt :)
 
 
 

@@ -38,4 +38,9 @@ return [
         "url" => "gissa",
         "title" => "Gissa spelet.",
     ],
+    [
+        "text" => "Dice100",
+        "url" => "dice100",
+        "title" => "Dice100 spelet.",
+    ],
 ];
