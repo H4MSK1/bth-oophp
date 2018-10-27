@@ -4,32 +4,35 @@ namespace H4MSK1\Dice;
 /**
  * A dicehand, consisting of dices.
  */
-class DiceHand
+class DiceHand implements HistogramInterface
 {
+    use HistogramTrait;
+
     /**
      * @var Dice $dices   Array consisting of dices.
      * @var int  $values  Array consisting of last roll of the dices.
      */
-    private $dices = [];
-    private $values = [];
+    protected $dices = [];
+    protected $values = [];
 
     /**
      * Constructor to initiate the dicehand with a number of dices.
      *
      * @param int $dices Number of dices to create, defaults to five.
      */
-    public function __construct(int $dices = 5, $useDiceGraphic = false)
+    public function __construct(int $dices = 5)
     {
         $this->dices  = [];
         $this->values = [];
 
         for ($i = 0; $i < $dices; $i++) {
-            if ($useDiceGraphic) {
-                $this->dices[] = new DiceGraphic();
-            } else {
-                $this->dices[] = new Dice();
-            }
+            $this->dices[] = new DiceGraphic();
         }
+    }
+
+    public function getHistogramSerie()
+    {
+        return $this->values;
     }
 
     public function getDices()
@@ -47,7 +50,9 @@ class DiceHand
         $this->values = [];
 
         foreach ($this->dices as $dice) {
-            $this->values[] = $dice->roll();
+            $roll = $dice->roll();
+            $this->values[] = $roll;
+            $this->serie[] = $roll;
         }
     }
 

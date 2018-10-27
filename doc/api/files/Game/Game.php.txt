@@ -1,9 +1,8 @@
 <?php
 namespace H4MSK1\Game;
 
-use H4MSK1\Dice\Dice;
 use H4MSK1\Dice\DiceHand;
-use H4MSK1\Dice\DiceGraphic;
+use H4MSK1\Dice\Histogram;
 
 class Game
 {
@@ -15,11 +14,13 @@ class Game
     public $player1Rounds = [];
     public $player1RoundsDices = [];
     public $player1Dices = [];
+    public $player1Histogram;
 
     public $player2Hand;
     public $player2Rounds = [];
     public $player2RoundsDices = [];
     public $player2Dices = [];
+    public $player2Histogram;
 
     /**
      * Constructor to initiate the dicehands with a number of dices.
@@ -27,10 +28,13 @@ class Game
      * @param int $player1Dices Number of dices to create, defaults to five.
      * @param int $player2Dices Number of dices to create, defaults to five.
      */
-    public function __construct($player1Dices = 5, $player2Dices = 5, $useDiceGraphic = true)
+    public function __construct($player1Dices = 5, $player2Dices = 5)
     {
-        $this->player1Hand = new DiceHand($player1Dices, $useDiceGraphic);
-        $this->player2Hand = new DiceHand($player2Dices, $useDiceGraphic);
+        $this->player1Hand = new DiceHand($player1Dices);
+        $this->player2Hand = new DiceHand($player2Dices);
+
+        $this->player1Histogram = new Histogram();
+        $this->player2Histogram = new Histogram();
     }
 
     public function isGameOver()
@@ -82,6 +86,15 @@ class Game
 
         $this->round++;
 
+        $computerSum = $this->getPlayerSum(2);
+
+        if ($this->getPlayerSum(1) < 100 && $computerSum < 100) {
+            if ($computerSum > 70 && rand(1, 100) <= 50) {
+                $this->switchTurn();
+                return;
+            }
+        }
+
         if ($player === 1) {
             $this->player1Hand->roll();
             $dices = $this->player1Hand->values();
@@ -91,7 +104,11 @@ class Game
         }
 
         $this->handleRound($player, $dices);
+        $this->checkWinStatus();
+    }
 
+    private function checkWinStatus()
+    {
         if ($this->getPlayerSum(1) >= 100 || $this->getPlayerSum(2) >= 100) {
             $this->gameOver = true;
         }
@@ -113,6 +130,8 @@ class Game
             $playerVar .= "Dices";
             $this->$playerVar[$this->round] = $dices;
         }
+
+        $this->{"player{$player}Histogram"}->injectData($this->getPlayerHand($player));
     }
 
     private function disableRoundForPlayer($player)

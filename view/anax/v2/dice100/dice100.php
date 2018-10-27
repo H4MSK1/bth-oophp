@@ -35,6 +35,11 @@ namespace Anax\View;
         <p>
             <h5>Sum: <?= $game->getPlayerSum(1) ?></h5>
             <br>
+            <h5>Histogram:</h5>
+            <div>
+                <?= $game->player1Histogram->getAsText() ?>
+            </div>
+            <br>
             <h5>Dices:</h5>
             <br>
             <?php
@@ -59,6 +64,11 @@ namespace Anax\View;
         </p>
         <p>
             <h5>Sum: <?= $game->getPlayerSum(2) ?></h5>
+            <br>
+            <h5>Histogram:</h5>
+            <div>
+                <?= $game->player2Histogram->getAsText() ?>
+            </div>
             <br>
             <h5>Dices:</h5>
             <br>

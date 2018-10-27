@@ -110,7 +110,32 @@ Min TIL för detta kmom var mer användningen av ramverket session service och m
 Kmom04
 -------------------------
 
-Här är redovisningstexten
+**Vilka är dina tankar och funderingar kring trait och interface?**
+
+Interface är superviktigt när det kommer till klasser och olika typer av inheritence.
+Det avgör hur funktioner bör se ut, och vilka typer av argument som borde matas in i en specifik funktion.
+Trait tycker jag är ett enkelt sätt att utöka funktionaliteten hos en klass utan behovet av att skapa en ny klass eller kladda ner klassen, man kan även återanvända Trait's utan att behöva extenda någon klass.
+
+**Hur gick det att skapa intelligensen och taktiken till tärningsspelet, hur gjorde du?**
+
+Det gick rätt smidigt, tog lite tid innan jag förstod hur man skulle använda Histogrammet.
+Vad gäller intelligensen så gjorde jag att om datorn har över 70 poäng så finns det en 50% chans att den kommer att fortsätta eller 50% att den ger över rundan till spelaren istället, den tar egna beslut då. 
+
+**Några reflektioner från att integrera hårdare in i ramverkets klasser och struktur?**
+
+Tycker att README filerna var väldigt hjälpsamma och rak på sak.
+Trevligt att använda SESSION utifrån $app istället för att skapa ett nytt SESSION objekt.
+GET och POST data har man lätt tillgång till via $app->request vilket underlättar mycket och gör koden snyggare och mer konsistent tycker jag.
+
+**Berätta hur väl du lyckades med make test inuti ramverket och hur väl du lyckades att testa din kod med enhetstester och vilken kodtäckning du fick.**
+
+Lyckades väl helt okej, hade mer än gärna skrivit fler tester men har inte mycket tid för det.
+Vad gäller kodtäckning så fick jag mellan medium och high, såg till att alla objekt instanser matchar det som förväntas, i Dice testen såg jag till att testa både roll() och sides.
+
+**Vilken är din TIL för detta kmom?**
+
+Min TIL för detta kmom har varit hur man använder Traits och Interfaces.
+Vi har även Histogrammet som tog mig ett tag att förstå men jag börjar komma in i det, jag lärde mig även flera "assert" funktioner i PHPUNIT.
 
 
 

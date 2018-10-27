@@ -6,9 +6,9 @@ namespace H4MSK1\Dice;
  */
 class Dice
 {
-    private $sides;
-    private $lastRoll;
-    private $numbers = [];
+    protected $sides;
+    protected $lastRoll;
+    protected $numbers = [];
 
     public function __construct($sides = 6)
     {
