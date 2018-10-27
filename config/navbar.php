@@ -43,4 +43,9 @@ return [
         "url" => "dice100",
         "title" => "Dice100 spelet.",
     ],
+    [
+        "text" => "Movie",
+        "url" => "movie",
+        "title" => "Fetch movies from the database.",
+    ],
 ];

@@ -26,3 +26,35 @@ html {
 .dice-utf8 {
     font-size: 2.5em;
 }
+
+table {
+    border: 1px solid #000;
+    padding: 0.5em;
+}
+
+tr.first {
+    background-color: #333;
+}
+
+tr.first > th {
+    padding: 0.5em;
+}
+
+tr:hover {
+    background-color: #333;
+}
+
+th {
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+}
+
+th,
+td {
+    padding: 4px;
+}
+
+img.thumb {
+    max-width: 150px;
+    max-height: 150px;
+}

@@ -142,7 +142,25 @@ Vi har även Histogrammet som tog mig ett tag att förstå men jag börjar komma
 Kmom05
 -------------------------
 
-Här är redovisningstexten
+**Några reflektioner kring koden i övningen för PHP PDO och MySQL?**
+
+Det var spännande att hoppa in i PHP PDO och faktiskt använda det, övningen hanterade routes och olika databasförfrågningar tillsammans med vyer på ett enkelt sätt som inte är svårt att förstå.
+Gillade trixet med att man kan köra gitignore på sin personliga databas konfiguration och istället ha en "database_sample" config.
+
+**Hur gick det att överföra koden in i ramverket, stötte du på några utmaningar?**
+
+Jag upplevde inga större problem, jag följde alla steg i instruktionerna och det fungerade galant.
+Efter att koden var överförd till ramverket så började jag ersätta alla "getGet()" och "getPost()" med "$app->request->getXxx()" för att använda mig av ramverkets Request objekt.
+Jag valde att istället köra all logik inom en route och inte dela upp routes och olika GET-POST metoder p.g.a tidsbrist, en ful lösning men den funkar..
+
+**Berätta om din slutprodukt för filmdatabasen, gjorde du endast basfunktionaliteten eller lade du till extra features och hur tänkte du till kring användarvänligheten och din kodstruktur?**
+
+Då jag återanvände nästan all kod från övningen "PHP PDO och MYSQL" så fick jag implementera de extra features som fanns, vad gäller användarvänligheten så gjorde jag minimalt med styling vad gäller tabellerna, det blev ändå inte allt för kladdigt utan tvärtom, rätt enkelt.
+
+**Vilken är din TIL för detta kmom?**
+
+Min TIL för detta kmom har varit att koppla ihop databasen med studentservern och att använda mig utav olika databas konfigurationer beroende på vart scriptet körs (lokalt eller studentservern).
+Fick även lära mig fler Anax funktioner som kommer vara till nytta längre fram.
 
 
 
