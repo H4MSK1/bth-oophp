@@ -58,3 +58,11 @@ img.thumb {
     max-width: 150px;
     max-height: 150px;
 }
+
+a {
+    color: #ff934b;
+}
+
+a:hover {
+    color: #db7836;
+}

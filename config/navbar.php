@@ -48,4 +48,14 @@ return [
         "url" => "movie",
         "title" => "Fetch movies from the database.",
     ],
+    [
+        "text" => "Filter",
+        "url" => "filter",
+        "title" => "Test filters.",
+    ],
+    [
+        "text" => "Content",
+        "url" => "content",
+        "title" => "Fetch content database.",
+    ],
 ];

@@ -167,7 +167,29 @@ Fick även lära mig fler Anax funktioner som kommer vara till nytta längre fra
 Kmom06
 -------------------------
 
-Här är redovisningstexten
+**Hur gick det att jobba med klassen för filtrering och formatting av texten?**
+
+Väldigt bra faktiskt. Uppskattade att koden redan fanns klar för de olika filters vi hade istället för att vi själva skulle implementera vår egen bbcode markdown konvertering.
+Jag gjorde även att alla länkar blir klickbara som standard tillsammans med nl2br.
+
+**Berätta om din klasstruktur och kodstruktur för din lösning av webbsidor med innehåll i databasen.**
+
+Jag skapade 3 klasser, Content, Blog och Page.
+Content är huvudklassen som Blog och Page ärver från.
+Content implementerar interfacet AppInjectableInterface för att man ska kunna använda $app och med hjälp av AppInjectableTrait så är setApp() metoden tillgänglig där.
+Klassen innehåller också ett flertal metoder för att hämta, lägga till, uppdatera och ta bort data från Content tabellen.
+Blog och Page ärver som sagt Content och i konstruktorn så skickar jag även med in ett värde som indikerar vilken typ av innehåll det är, antingen post eller page då i detta fallet.
+
+**Hur känner du rent allmänt för den koden du skrivit i din me/redovisa, vad är bra och mindre bra? Ser du potential till refactoring av din kod och/eller behov av stöd från ramverket?**
+
+Ramverket har verkligen hjälpt till att organisera koden och samtidigt förbereda inför databas uppgiften.
+Jag kunde personligen ha spenderat mer tid på att organisera mina routers och skriva fler enhetstester men eftersom tiden är snart slut så får det bli till nästa gång i nästa kurs.
+
+**Vilken är din TIL för detta kmom?**
+
+Min TIL för detta kmom har varit användandet av AppInjectableInterface och AppInjectableTrait från Anax ramverket.
+Har även lärt mig organisera SQL koden och olika typer av inlägg i klasserna Content, Blog och Page.
+Jag valde att även implementera databas återställnings funktionen och då fick jag först hämta databas konfigurations parameterar via $app->get("configuration")->load("database") vilket jag aldrig har gjort innan.
 
 
 

@@ -13,7 +13,7 @@ namespace Anax\View;
 ?>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index.php">~moau17 <small>Me-Sida för Mohammed</small></a>
+        <a class="navbar-brand" href="index.php">~moau17 <small>Me-Sida</small></a>
         <button
         class="navbar-toggler"
         type="button"
