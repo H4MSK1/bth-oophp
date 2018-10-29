@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Get value from GET variable or return default value.
- *
- * @param string $key     to look for
- * @param mixed  $default value to set if key does not exists
- *
- * @return mixed value from GET or the default value
- */
 function getGet($key, $default = null)
 {
     return isset($_GET[$key])
@@ -15,16 +7,6 @@ function getGet($key, $default = null)
         : $default;
 }
 
-
-
-/**
- * Get value from POST variable or return default value.
- *
- * @param string $key     to look for
- * @param mixed  $default value to set if key does not exists
- *
- * @return mixed value from POST or the default value
- */
 function getPost($key, $default = null)
 {
     if (! is_array($key)) {
@@ -40,30 +22,11 @@ function getPost($key, $default = null)
     return $params;
 }
 
-
-
-/**
- * Sanitize value for output in view.
- *
- * @param string $value to sanitize
- *
- * @return string beeing sanitized
- */
 function esc($value)
 {
     return htmlentities($value);
 }
 
-
-
-/**
- * Function to create links for sorting.
- *
- * @param string $column the name of the database column to sort by
- * @param string $route  prepend this to the anchor href
- *
- * @return string with links to order by column.
- */
 function orderby($column, $route)
 {
     return <<<EOD
@@ -97,18 +60,6 @@ function orderby2($column, $route)
 EOD;
 }
 
-
-
-/**
- * Use current querystring as base, extract it to an array, merge it
- * with incoming $options and recreate the querystring using the
- * resulting array.
- *
- * @param array  $options to merge into exitins querystring
- * @param string $prepend to the resulting query string
- *
- * @return string as an url with the updated query string.
- */
 function mergeQueryString($options, $prepend = "?")
 {
     // Parse querystring into array
@@ -122,13 +73,6 @@ function mergeQueryString($options, $prepend = "?")
     return $prepend . http_build_query($query);
 }
 
-/**
- * Create a slug of a string, to be used as url.
- *
- * @param string $str the string to format as slug.
- * 
- * @return str the formatted slug.
- */
 function slugify($str)
 {
     $str = mb_strtolower(trim($str));
@@ -139,25 +83,11 @@ function slugify($str)
     return $str;
 }
 
-/**
- * Check if key is set in POST.
- *
- * @param mixed $key     to look for
- *
- * @return boolean true if key is set, otherwise false
- */
 function hasKeyPost($key)
 {
     return array_key_exists($key, $_POST);
 }
 
-/**
- * Limit the string to the given amount of characters but still leave the last word intact
- * 
- * @param  string $text 
- * @param  int    $length 
- * @return string
- */
 function truncate($text, $length)
 {
     $length = abs((int)$length);

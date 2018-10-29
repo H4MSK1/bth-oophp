@@ -27,9 +27,17 @@ function getGet($key, $default = null)
  */
 function getPost($key, $default = null)
 {
-    return isset($_POST[$key])
-        ? $_POST[$key]
-        : $default;
+    if (! is_array($key)) {
+        return isset($_POST[$key]) ? $_POST[$key] : $default;
+    }
+
+    $params = [];
+
+    foreach ($key as $param) {
+        $params[$param] = getPost($param);
+    }
+
+    return $params;
 }
 
 
@@ -112,5 +120,57 @@ function mergeQueryString($options, $prepend = "?")
 
     // Build and return the modified querystring as url
     return $prepend . http_build_query($query);
+}
+
+/**
+ * Create a slug of a string, to be used as url.
+ *
+ * @param string $str the string to format as slug.
+ * 
+ * @return str the formatted slug.
+ */
+function slugify($str)
+{
+    $str = mb_strtolower(trim($str));
+    $str = str_replace(['å','ä'], 'a', $str);
+    $str = str_replace('ö', 'o', $str);
+    $str = preg_replace('/[^a-z0-9-]/', '-', $str);
+    $str = trim(preg_replace('/-+/', '-', $str), '-');
+    return $str;
+}
+
+/**
+ * Check if key is set in POST.
+ *
+ * @param mixed $key     to look for
+ *
+ * @return boolean true if key is set, otherwise false
+ */
+function hasKeyPost($key)
+{
+    return array_key_exists($key, $_POST);
+}
+
+/**
+ * Limit the string to the given amount of characters but still leave the last word intact
+ * 
+ * @param  string $text 
+ * @param  int    $length 
+ * @return string
+ */
+function truncate($text, $length)
+{
+    $length = abs((int)$length);
+
+    if (strlen($text) > $length) {
+        $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
+    }
+
+    return $text;
+}
+
+function limitText($text)
+{
+    return truncate($text, 75);
 }
 
